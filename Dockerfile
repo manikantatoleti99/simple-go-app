@@ -3,6 +3,9 @@ FROM golang:1.22-alpine AS builder
 
 WORKDIR /app
 
+# Turn off module mode
+ENV GO111MODULE=off
+
 COPY main.go .
 
 RUN go build -o server .
